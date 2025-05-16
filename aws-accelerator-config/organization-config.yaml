@@ -2,7 +2,7 @@ enable: true
 organizationalUnits:
   - name: Security
   - name: Infrastructure
+  - name: GovCloud
 serviceControlPolicies: []
 taggingPolicies: []
-chatbotPolicies: []
 backupPolicies: []
