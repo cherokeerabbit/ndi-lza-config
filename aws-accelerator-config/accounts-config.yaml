@@ -23,6 +23,11 @@ mandatoryAccounts:
     email: aws-audit@nndata.com
     organizationalUnit: Security
     warm: false
+  - name: SharedServices
+    email: sharedservices@nndata.com
+    organizationalUnit: Infrastructure
+    accountType: shared
+    partition: aws      
 workloadAccounts:
   - name: LogArchiveGC # referred to as LogArchive in the GovCloud account-config.yaml
     description: The log archive account for GovCloud.
