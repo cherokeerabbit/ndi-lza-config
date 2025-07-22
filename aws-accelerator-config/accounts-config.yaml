@@ -23,11 +23,6 @@ mandatoryAccounts:
     email: aws-audit@nndata.com
     organizationalUnit: Security
     warm: false
-  - name: SharedServices
-    email: sharedservices@nndata.com
-    organizationalUnit: Infrastructure
-    accountType: shared
-    partition: aws      
 workloadAccounts:
   - name: LogArchiveGC # referred to as LogArchive in the GovCloud account-config.yaml
     description: The log archive account for GovCloud.
@@ -48,9 +43,31 @@ workloadAccounts:
     description: Shared services (VDMS) account for GovCloud.
     email: aws-vdms-gc@nndata.com 
     organizationalUnit: GovCloud
+    partition: aws-us-gov
     enableGovCloud: true
   - name: NetworkGC # referred to as Network in the GovCloud account-config.yaml
     description: Network account (VDSS) for GovCloud.
     email: aws-vdss-gc@nndata.com
     organizationalUnit: GovCloud
     enableGovCloud: true
+  - name: Development
+    description: Development Account in GovCloud.
+    email: aws-dev-gc@nndata.com
+    organizationalUnit: GovCloud
+    enableGovCloud: true
+  - name: QA
+    description: QA Account in GovCloud.
+    email: aws-qa-gc@nndata.com
+    organizationalUnit: GovCloud
+    enableGovCloud: true
+  - name: Stage01
+    description: Stage 01 Account in GovCloud.
+    email: aws-stg01-gc@nndata.com 
+    organizationalUnit: GovCloud
+    partition: aws-us-gov
+    enableGovCloud: true
+  - name: Production 
+    description: Production Workload Account in GovCloud.
+    email: aws-prod-gc@nndata.com
+    organizationalUnit: GovCloud
+    enableGovCloud: true    
