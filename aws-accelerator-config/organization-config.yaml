@@ -3,6 +3,12 @@ organizationalUnits:
   - name: Security
   - name: Infrastructure
   - name: GovCloud
+  - name: BreakGlass
+    ignore: true
+    
+ignoredOus:
+  - BreakGlass
+
 serviceControlPolicies: []
 taggingPolicies: []
 backupPolicies: []

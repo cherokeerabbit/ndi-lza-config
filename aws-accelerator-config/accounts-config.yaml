@@ -23,6 +23,7 @@ mandatoryAccounts:
     email: aws-audit@nndata.com
     organizationalUnit: Security
     warm: false
+    
 workloadAccounts:
   - name: LogArchiveGC # referred to as LogArchive in the GovCloud account-config.yaml
     description: The log archive account for GovCloud.
@@ -34,40 +35,46 @@ workloadAccounts:
     # enableGovCloud is a one-time non-reversible option
     # which only works with creation of new accounts
     enableGovCloud: true
+    partition: aws-us-gov     
   - name: AuditGC # referred to as LogArchive in the GovCloud account-config.yaml
     description: The security audit account (also referred to as the audit account) for GovCloud.
     email: aws-audit-gc@nndata.com
     organizationalUnit: GovCloud
     enableGovCloud: true
+    partition: aws-us-gov     
   - name: SharedServicesGC # referred to as SharedServices in the GovCloud account-config.yaml
     description: Shared services (VDMS) account for GovCloud.
     email: aws-vdms-gc@nndata.com 
     organizationalUnit: GovCloud
-    partition: aws-us-gov
     enableGovCloud: true
+    partition: aws-us-gov     
   - name: NetworkGC # referred to as Network in the GovCloud account-config.yaml
     description: Network account (VDSS) for GovCloud.
     email: aws-vdss-gc@nndata.com
     organizationalUnit: GovCloud
     enableGovCloud: true
+    partition: aws-us-gov     
   - name: Development
     description: Development Account in GovCloud.
     email: aws-dev-gc@nndata.com
     organizationalUnit: GovCloud
     enableGovCloud: true
+    partition: aws-us-gov     
   - name: QA
     description: QA Account in GovCloud.
     email: aws-qa-gc@nndata.com
     organizationalUnit: GovCloud
     enableGovCloud: true
+    partition: aws-us-gov     
   - name: Stage01
     description: Stage 01 Account in GovCloud.
     email: aws-stg01-gc@nndata.com 
     organizationalUnit: GovCloud
-    partition: aws-us-gov
     enableGovCloud: true
+    partition: aws-us-gov     
   - name: Production 
     description: Production Workload Account in GovCloud.
     email: aws-prod-gc@nndata.com
     organizationalUnit: GovCloud
     enableGovCloud: true    
+    partition: aws-us-gov     

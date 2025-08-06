@@ -1,5 +1,69 @@
 providers: []
 policySets: []
 roleSets: []
-groupSets: []
 userSets: []
+
+identityCenter:
+  name: IdentityCenter
+  delegatedAdminAccount: Audit
+
+  identityCenterPermissionSets:
+    - name: AWSAccelerator-SystemAdmin
+      policies:
+        awsManaged:
+          - arn:aws:iam::aws:policy/job-function/SystemAdministrator
+      sessionDuration: 60
+    - name: GovCloud-Developer
+      description: Developer access to GovCloud resources
+      policies:
+        awsManaged:
+          - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+          - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
+          - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+          - arn:aws:iam::aws:policy/SecretsManagerReadWrite
+          - arn:aws:iam::aws:policy/AWSKeyManagementServicePowerUser
+      sessionDuration: 120
+
+  identityCenterAssignments:
+    - name: AssignSystemAdminToMatt
+      permissionSetName: AWSAccelerator-SystemAdmin
+      principalType: USER
+      principalId: 64b88428-8041-7078-8676-3b2b659f972c
+      deploymentTargets:
+        organizationalUnits:
+          - Root
+          - GovCloud
+    - name: AssignSystemAdminToGovCloudAdmins
+      permissionSetName: AWSAccelerator-SystemAdmin
+      principalType: GROUP
+      principalId: 342824a8-50b1-70bb-cf8d-e9a1a6416099
+      deploymentTargets:
+        accounts:
+          - Development
+          - QA
+          - Stage01
+          - Production
+    - name: AssignGovCloudDeveloperAccess
+      permissionSetName: GovCloud-Developer
+      principalType: GROUP
+      principalId: 04d8f4c8-f071-702f-eb25-e26289d33b62
+      deploymentTargets:
+        accounts:
+          - Development
+          - QA
+          - Stage01
+          - Production
+
+groupSets:
+  - name: GovCloudDevelopers
+    deploymentTargets:
+      accounts:
+        - Development
+        - QA
+        - Stage01
+        - Production      
+    users:
+      - matt.beckwith@nndata.com  # Add other developers as needed
+      - wyatt.shabe@nndata.com
+    groups:
+      - name: GovCloudDevelopers
